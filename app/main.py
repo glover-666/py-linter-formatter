@@ -1,6 +1,6 @@
 def format_linter_error(error: dict) -> dict:
     return {
-        "line": error["line_number"],                  # The output will be:
+        "line": error["line_number"],                  # def format_linter_error
         "column": error[ "column_number"],
         "message": error["text"],
         "name": error["code"],
@@ -8,12 +8,12 @@ def format_linter_error(error: dict) -> dict:
     }
 def format_single_linter_file(file_path: str, errors: list) -> dict:
     return {
-        "errors": [format_linter_error(e) for e in errors],
+        "errors": [format_linter_error(e) for e in errors],         #def format_single_linter_file
         "path": file_path,
         "status": "failed" if errors else "passed"
     }
 def format_linter_report(linter_report: dict) -> list:
     return [
-        format_single_linter_file(path, errors)
+        format_single_linter_file(path, errors)           #def format_linter_report
         for path, errors in linter_report.items()
     ]
